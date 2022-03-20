@@ -46,9 +46,9 @@ function tahnoutJmeno() {
 
     jmena.splice(vyherniIndex, 1);
 
-    // Výherní jméno si uložíme do pole k ostatním výherním
+    // Výherní jméno si uložíme do pole k ostatním výherním + zařadí jméno na začátek seznamu
     
-    tazenaJmena.push(vyherniJmeno);
+    tazenaJmena.unshift(vyherniJmeno);
 
     // Vyvolané jméno
 
@@ -58,5 +58,24 @@ function tahnoutJmeno() {
     // Kdo už byl vytažený
 
     let vytazeni = document.getElementById('seznam');
-    seznam.textContent = tazenaJmena;
+    vytazeni.textContent = tazenaJmena;
+
+
+    // Počítadlo, kolik už se vybralo holek
+
+    let pocetObeti = document.getElementById('obeti');
+    pocetObeti.textContent = tazenaJmena.length;
+}
+
+// Restartování hry
+
+function restart() {
+    let vytazeni = document.getElementById('seznam');
+    let pocetObeti = document.getElementById('obeti');
+    let vyvolany = document.getElementById('vyherka');
+
+    tazenaJmena = [];
+    vytazeni.textContent = "Seznam vyvolaných";
+    pocetObeti.textContent = "Počet vyzkoušených";
+    vyvolany.textContent = " ";
 }
